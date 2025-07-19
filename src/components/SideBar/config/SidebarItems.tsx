@@ -1,5 +1,5 @@
 import { HomeIcon, User } from "lucide-react";
-import type { MenuItem } from "../@types";
+import type { MenuItem } from "../../../@types/Menu";
 
 export const menuItems: MenuItem[] = [
   {
