@@ -1,5 +1,5 @@
-import type { ILoginFormProps } from "../../@types/Login";
-import { api } from "../config/api";
+import type { ILoginFormProps } from "../@types/Login";
+import { api } from "./config/api";
 
 /**
  * Função para autenticar um usuário.

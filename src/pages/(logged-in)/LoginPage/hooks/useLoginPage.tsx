@@ -3,7 +3,7 @@ import { useAuthContext } from "../../../../hooks/useAuthContext";
 import { useForm } from "react-hook-form";
 import type { ILoginFormProps } from "../../../../@types/Login";
 import { useMutation } from "@tanstack/react-query";
-import { authService } from "../../../../services/Auth/auth.service";
+import { authService } from "../../../../services/auth.service";
 
 
 export const useLoginPage = () => {
