@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import LoginPage from './pages/LoginPage';
+import LoginPage from './pages/(logged-in)/LoginPage/LoginPage';
 
 const DashboardPage = () => <div className="p-8">Bem-vindo ao Dashboard!</div>;
 

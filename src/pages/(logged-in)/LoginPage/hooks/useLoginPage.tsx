@@ -1,9 +1,10 @@
 import { useNavigate } from "react-router-dom";
-import { useAuthContext } from "../../hooks/useAuthContext";
+import { useAuthContext } from "../../../../hooks/useAuthContext";
 import { useForm } from "react-hook-form";
-import type { ILoginFormProps } from "../../@types/Login";
+import type { ILoginFormProps } from "../../../../@types/Login";
 import { useMutation } from "@tanstack/react-query";
-import { authService } from "../../services/Auth/auth.service";
+import { authService } from "../../../../services/auth.service";
+import toast from "react-hot-toast";
 
 
 export const useLoginPage = () => {
@@ -17,7 +18,8 @@ export const useLoginPage = () => {
     onSuccess: (response) => {
       const { access_token } = response.data;
       auth.login(access_token);
-      navigate('/dashboard');
+      toast.success('Bem-vindo!');
+      navigate('/dashboard/home');
     },
     onError: () => {
       setError('root.serverError', {
