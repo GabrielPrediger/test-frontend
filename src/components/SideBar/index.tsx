@@ -47,7 +47,7 @@ export const Sidebar = () => {
                 className={`flex items-center gap-3 rounded-4xl p-3 hover:bg-primary-700 cursor-pointer ${location.pathname.startsWith(item.path) ? 'bg-primary-700' : ''}`}
                 onClick={() => navigate(item.path)}
               >
-                <span className="text-xl">{item.icon}</span>
+                <span>{item.icon}</span>
                 <AnimatePresence>
                   {isOpen && (
                     <motion.p
