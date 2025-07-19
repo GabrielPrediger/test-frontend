@@ -14,3 +14,9 @@ export interface ApiClientsResponse {
     clientes: ApiClient[];
   };
 }
+
+export interface ClientFormData {
+  name: string;
+  email: string;
+  birthDate: string;
+}

@@ -4,12 +4,16 @@ import { menuItems } from "./config/SidebarItems";
 
 import { LogOut, PiIcon } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useAuthContext } from "../../hooks/useAuthContext";
 
 
 export const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const { logout } = useAuthContext()
   const location = useLocation();
   const navigate = useNavigate()
+
 
   return (
     <motion.div
@@ -68,7 +72,7 @@ export const Sidebar = () => {
         </div>
 
         <div className="mb-6 w-max ml-3">
-          <div className="flex items-center justify-center gap-2 rounded-4xl p-3 hover:bg-primary-700 cursor-pointer">
+          <div onClick={() => logout()} className="flex items-center justify-center gap-2 rounded-4xl p-3 hover:bg-primary-700 cursor-pointer">
             <LogOut size={26} />
             <AnimatePresence>
               {isOpen && (
