@@ -3,6 +3,7 @@ import type { NormalizedClient } from "../@types";
 import { clientService } from "../../../../services/client.service";
 import { useState } from "react";
 import type { ClientFormData } from "../../../../@types/ClientApi";
+import toast from "react-hot-toast";
 
 export const useClientsPageData = () => {
   const [isFormModalOpen, setIsFormModalOpen] = useState(false);
@@ -24,30 +25,43 @@ export const useClientsPageData = () => {
       }));
       return normalizedData;
     },
+    staleTime: 1000 * 60 * 5,
   });
 
 
   const createClientMutation = useMutation({
     mutationFn: clientService.createClient,
     onSuccess: () => {
+      toast.success('Cliente criado com sucesso!');
       queryClient.invalidateQueries({ queryKey: ['clients'] });
       handleCloseFormModal();
     },
+    onError: () => {
+      toast.error('Houve um erro ao criar o cliente.');
+    }
   });
 
   const updateClientMutation = useMutation({
     mutationFn: clientService.updateClient,
     onSuccess: () => {
+      toast.success('Cliente atualizado com sucesso!');
       queryClient.invalidateQueries({ queryKey: ['clients'] });
       handleCloseFormModal();
     },
+    onError: () => {
+      toast.error('Houve um erro ao atualizar o cliente.');
+    }
   });
 
   const deleteClientMutation = useMutation({
     mutationFn: clientService.deleteClient,
     onSuccess: () => {
+      toast.success('Cliente deletado com sucesso!');
       queryClient.invalidateQueries({ queryKey: ['clients'] });
     },
+    onError: () => {
+      toast.error('Houve um erro ao deletar o cliente.');
+    }
   });
 
   const handleOpenAddModal = () => {
