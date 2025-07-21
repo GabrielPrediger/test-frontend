@@ -74,9 +74,9 @@ src/
 
 Clone o repositório e acesse a pasta do projeto:
 
-    ```bash
-    git clone https://github.com/GabrielPrediger/toy-store-front.git
-    ```
+   ```bash
+   git clone https://github.com/GabrielPrediger/toy-store-front.git
+   ```
 
 1. Acesse a pasta do frontend:
 
