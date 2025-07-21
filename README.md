@@ -72,10 +72,16 @@ src/
 
 ### Passo a Passo
 
+Clone o repositório e acesse a pasta do projeto:
+
+    ```bash
+    git clone https://github.com/GabrielPrediger/toy-store-front.git
+    ```
+
 1. Acesse a pasta do frontend:
 
    ```bash
-   cd test-frontend
+   cd toy-store-front
    ```
 
 2. Instale as dependências:
