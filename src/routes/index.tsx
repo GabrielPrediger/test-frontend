@@ -1,9 +1,9 @@
 import { createBrowserRouter } from 'react-router-dom';
-import LoginPage from '../pages/(logged-in)/LoginPage/LoginPage';
 import LoggedInLayout from '../layout/LoggedInLayout';
 import ProtectedRoute from './ProtectedRoute';
 import HomePage from '../pages/(logged-in)/HomePage/HomePage';
 import ClientsPage from '../pages/(logged-in)/ClientsPage';
+import LoginPage from '../pages/(logged-out)/LoginPage/LoginPage';
 
 export const router = createBrowserRouter([
   {

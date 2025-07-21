@@ -1,69 +1,108 @@
-# React + TypeScript + Vite
+# Frontend - Teste Técnico para Loja de Brinquedos (React)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 1. Visão Geral do Projeto
 
-Currently, two official plugins are available:
+Esta é uma Single Page Application (SPA) desenvolvida em **React**, com **Vite** e **TypeScript**, que consome a API RESTful da Loja de Brinquedos. A aplicação permite que administradores autenticados gerenciem clientes e visualizem estatísticas de vendas por meio de uma interface moderna, responsiva e focada na experiência do usuário.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 2. Funcionalidades Implementadas
 
-## Expanding the ESLint configuration
+* ✅ **Autenticação de Usuário**
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+  * Tela de login segura e com validação, integrada ao backend via JWT.
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+* ✅ **Gerenciamento de Estado**
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+  * **TanStack Query (React Query)**: caching, revalidação e atualização automática da UI.
+  * **React Context**: estado global de autenticação.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+* ✅ **Dashboard de Estatísticas**
+
+  * Gráfico de barras responsivo (Recharts) com vendas diárias.
+  * Cards informativos para “top clientes”.
+
+* ✅ **Página de Clientes**
+
+  * **Normalização de Dados**: camada de transformação que converte o JSON “bagunçado” em estrutura tipada.
+  * **Listagem Responsiva**: tabela em desktop e lista de cards em dispositivos móveis.
+  * **CRUD com UX Moderna**: adicionar, editar e deletar clientes usando modais (Headless UI).
+  * **Lógica “Letra Faltante”**: demonstra manipulação de dados no cliente.
+
+* ✅ **Design e UX**
+
+  * **Responsividade**: troca de sidebar por menu inferior em mobile.
+  * **Feedback**: notificações “toast” (react-hot-toast) e componentes de loading.
+  * **Animações Sutis**: transições suaves com Framer Motion.
+
+## 3. Tecnologias e Bibliotecas
+
+* **React**
+* **Vite**
+* **TypeScript**
+* **Tailwind CSS**
+* **TanStack Query (React Query)**
+* **React Hook Form**
+* **React Router**
+* **Headless UI**
+* **Framer Motion**
+* **Recharts**
+* **React Hot Toast**
+* **Lucide React**
+* **Axios**
+
+## 4. Estrutura do Projeto
+
+```
+src/
+├── pages/        # Componentes de página (Login, Home, Clientes)
+├── components/   # Componentes reutilizáveis (Modais, Forms, Spinners, etc.)
+├── services/     # Lógica de comunicação com a API (Axios)
+├── contexts/     # Contexto de Autenticação
+├── utils/        # Funções utilitárias (ex: findFirstMissingLetter)
+├── layouts/      # Componentes de layout (ex: LoggedInLayout)
+└── main.tsx      # Ponto de entrada
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 5. Configuração do Ambiente
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Pré-requisitos
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+* Node.js v18+
+* npm ou yarn
+* Backend em execução (consulte o README do backend)
+
+### Passo a Passo
+
+1. Acesse a pasta do frontend:
+
+   ```bash
+   cd test-frontend
+   ```
+
+2. Instale as dependências:
+
+   ```bash
+   npm install
+   ```
+
+3. Crie o arquivo `.env` na raiz e defina a URL da API:
+
+   ```env
+   VITE_API_BASE_URL=http://localhost:3000
+   ```
+
+## 6. Executando a Aplicação
+
+1. Garanta que o servidor backend está em execução.
+2. Inicie o frontend:
+
+   ```bash
+   npm run dev
+   ```
+3. Acesse em `http://localhost:5173`.
+
+## 7. Credenciais para Login
+
+Use o usuário administrador criado pelo seed do backend:
+
+* **Email:** `admin@lojadebrinquedos.com`
+* **Senha:** `senha123`
